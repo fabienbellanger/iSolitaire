@@ -14,6 +14,9 @@
 		97E9553D19D5FBE8009703D7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97E9553C19D5FBE8009703D7 /* Images.xcassets */; };
 		97E9554019D5FBE8009703D7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97E9553E19D5FBE8009703D7 /* LaunchScreen.xib */; };
 		97E9554C19D5FBE8009703D7 /* iSolitaireTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E9554B19D5FBE8009703D7 /* iSolitaireTests.m */; };
+		97E9555F19D60C02009703D7 /* Board.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E9555A19D60C02009703D7 /* Board.m */; };
+		97E9556019D60C02009703D7 /* BoardType.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E9555C19D60C02009703D7 /* BoardType.m */; };
+		97E9556119D60C02009703D7 /* BoardTypeList.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E9555E19D60C02009703D7 /* BoardTypeList.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,12 @@
 		97E9554519D5FBE8009703D7 /* iSolitaireTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iSolitaireTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		97E9554A19D5FBE8009703D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97E9554B19D5FBE8009703D7 /* iSolitaireTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iSolitaireTests.m; sourceTree = "<group>"; };
+		97E9555919D60C02009703D7 /* Board.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Board.h; sourceTree = "<group>"; };
+		97E9555A19D60C02009703D7 /* Board.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Board.m; sourceTree = "<group>"; };
+		97E9555B19D60C02009703D7 /* BoardType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardType.h; sourceTree = "<group>"; };
+		97E9555C19D60C02009703D7 /* BoardType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardType.m; sourceTree = "<group>"; };
+		97E9555D19D60C02009703D7 /* BoardTypeList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardTypeList.h; sourceTree = "<group>"; };
+		97E9555E19D60C02009703D7 /* BoardTypeList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardTypeList.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +131,12 @@
 		97E9555519D60519009703D7 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				97E9555919D60C02009703D7 /* Board.h */,
+				97E9555A19D60C02009703D7 /* Board.m */,
+				97E9555B19D60C02009703D7 /* BoardType.h */,
+				97E9555C19D60C02009703D7 /* BoardType.m */,
+				97E9555D19D60C02009703D7 /* BoardTypeList.h */,
+				97E9555E19D60C02009703D7 /* BoardTypeList.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -243,8 +258,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97E9556119D60C02009703D7 /* BoardTypeList.m in Sources */,
 				97E9553819D5FBE8009703D7 /* WelcomeViewController.m in Sources */,
+				97E9556019D60C02009703D7 /* BoardType.m in Sources */,
 				97E9553519D5FBE8009703D7 /* AppDelegate.m in Sources */,
+				97E9555F19D60C02009703D7 /* Board.m in Sources */,
 				97E9553219D5FBE8009703D7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
