@@ -1,18 +1,18 @@
 //
-//  ViewController.m
+//  WelcomeViewController.m
 //  iSolitaire
 //
 //  Created by Fabien BELLANGER on 26/09/2014.
 //  Copyright (c) 2014 Fabien BELLANGER. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "WelcomeViewController.h"
 
-@interface ViewController ()
+@interface WelcomeViewController ()
 
 @end
 
-@implementation ViewController
+@implementation WelcomeViewController
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
