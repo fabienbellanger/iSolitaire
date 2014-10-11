@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="PDR-jV-Sm8">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Welcome View Controller-->
@@ -17,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iSolitaire" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMW-br-e2K">
-                                <rect key="frame" x="100.5" y="120" width="119" height="36"/>
+                                <rect key="frame" x="100" y="120" width="119" height="36"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <color key="textColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -32,16 +33,39 @@
                                 </attributedString>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fabien Bellanger" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9MA-nT-1Fj">
-                                <rect key="frame" x="103" y="186" width="114.5" height="18"/>
+                                <rect key="frame" x="103" y="186" width="115" height="18"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
                                 <color key="textColor" red="0.60000002384185791" green="0.60000002384185791" blue="0.60000002384185791" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="msv-78-JA5">
+                                <rect key="frame" x="140" y="264" width="39" height="30"/>
+                                <state key="normal" title="Jouer">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbv-Fg-CUZ">
+                                <rect key="frame" x="140" y="264" width="39" height="30"/>
+                                <state key="normal" title="Jouer">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xft-wI-xvA">
+                                <rect key="frame" x="140" y="264" width="39" height="30"/>
+                                <state key="normal" title="Jouer">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="PDR-jV-Sm8" kind="modal" id="Baf-mn-OOh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="oMW-br-e2K" firstAttribute="centerX" secondItem="9MA-nT-1Fj" secondAttribute="centerX" id="75W-Az-E9k"/>
                             <constraint firstItem="9MA-nT-1Fj" firstAttribute="top" secondItem="oMW-br-e2K" secondAttribute="bottom" constant="30" id="Opc-vl-y64"/>
+                            <constraint firstItem="msv-78-JA5" firstAttribute="top" secondItem="9MA-nT-1Fj" secondAttribute="bottom" constant="60" id="aUB-B9-K4S"/>
+                            <constraint firstItem="msv-78-JA5" firstAttribute="centerX" secondItem="oMW-br-e2K" secondAttribute="centerX" id="asM-Rg-jrA"/>
                             <constraint firstItem="oMW-br-e2K" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="bgv-Mc-67f"/>
                             <constraint firstItem="oMW-br-e2K" firstAttribute="top" secondItem="UHb-g7-E47" secondAttribute="bottom" constant="100" id="muN-TO-2Ip"/>
                         </constraints>
@@ -49,7 +73,46 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="118" y="304"/>
+            <point key="canvasLocation" x="548" y="-368"/>
+        </scene>
+        <!--Game View Controller-->
+        <scene sceneID="EfE-14-el5">
+            <objects>
+                <viewController id="PDR-jV-Sm8" customClass="GameViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Aqb-uM-uzC"/>
+                        <viewControllerLayoutGuide type="bottom" id="vwc-5z-czc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nU7-hF-rxv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mzg-4r-MAO">
+                                <rect key="frame" x="16" y="30" width="288" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XAU-KA-DAU" customClass="CircleView">
+                                <rect key="frame" x="16" y="132" width="288" height="240"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Mzg-4r-MAO" firstAttribute="trailing" secondItem="nU7-hF-rxv" secondAttribute="trailingMargin" id="36B-bG-eaY"/>
+                            <constraint firstItem="Mzg-4r-MAO" firstAttribute="leading" secondItem="nU7-hF-rxv" secondAttribute="leadingMargin" id="u5e-po-e3U"/>
+                            <constraint firstItem="Mzg-4r-MAO" firstAttribute="top" secondItem="Aqb-uM-uzC" secondAttribute="bottom" constant="10" id="z1X-Gf-3bG"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="D1A-j3-dlu"/>
+                    <connections>
+                        <outlet property="circle" destination="XAU-KA-DAU" id="4Of-XQ-Jd4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bfd-GI-xQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="548" y="303"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9722177719E47FC5009DE40E /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9722177619E47FC5009DE40E /* GameViewController.m */; };
+		97415A8219E95FB400DD1C60 /* CircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 97415A8119E95FB400DD1C60 /* CircleView.m */; };
 		97E9553219D5FBE8009703D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E9553119D5FBE8009703D7 /* main.m */; };
 		97E9553519D5FBE8009703D7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E9553419D5FBE8009703D7 /* AppDelegate.m */; };
 		97E9553819D5FBE8009703D7 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E9553719D5FBE8009703D7 /* WelcomeViewController.m */; };
@@ -30,6 +32,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9722177519E47FC5009DE40E /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		9722177619E47FC5009DE40E /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		97415A8019E95FB400DD1C60 /* CircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleView.h; sourceTree = "<group>"; };
+		97415A8119E95FB400DD1C60 /* CircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleView.m; sourceTree = "<group>"; };
 		97E9552C19D5FBE8009703D7 /* iSolitaire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSolitaire.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97E9553019D5FBE8009703D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97E9553119D5FBE8009703D7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -69,6 +75,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9722177419E47F69009DE40E /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				9722177519E47FC5009DE40E /* GameViewController.h */,
+				9722177619E47FC5009DE40E /* GameViewController.m */,
+			);
+			name = Game;
+			sourceTree = "<group>";
+		};
+		97415A7F19E95F6200DD1C60 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				97415A8019E95FB400DD1C60 /* CircleView.h */,
+				97415A8119E95FB400DD1C60 /* CircleView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		97E9552319D5FBE8009703D7 = {
 			isa = PBXGroup;
 			children = (
@@ -95,7 +119,8 @@
 				97E9553919D5FBE8009703D7 /* Main.storyboard */,
 				97E9553C19D5FBE8009703D7 /* Images.xcassets */,
 				97E9553E19D5FBE8009703D7 /* LaunchScreen.xib */,
-				97E9555619D6052B009703D7 /* Views */,
+				97E9555619D6052B009703D7 /* ViewControllers */,
+				97415A7F19E95F6200DD1C60 /* Views */,
 				97E9555519D60519009703D7 /* Classes */,
 				97E9552F19D5FBE8009703D7 /* Supporting Files */,
 			);
@@ -141,12 +166,13 @@
 			name = Classes;
 			sourceTree = "<group>";
 		};
-		97E9555619D6052B009703D7 /* Views */ = {
+		97E9555619D6052B009703D7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9722177419E47F69009DE40E /* Game */,
 				97E9555819D60936009703D7 /* Welcome */,
 			);
-			name = Views;
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 		97E9555819D60936009703D7 /* Welcome */ = {
@@ -260,7 +286,9 @@
 			files = (
 				97E9556119D60C02009703D7 /* BoardTypeList.m in Sources */,
 				97E9553819D5FBE8009703D7 /* WelcomeViewController.m in Sources */,
+				9722177719E47FC5009DE40E /* GameViewController.m in Sources */,
 				97E9556019D60C02009703D7 /* BoardType.m in Sources */,
+				97415A8219E95FB400DD1C60 /* CircleView.m in Sources */,
 				97E9553519D5FBE8009703D7 /* AppDelegate.m in Sources */,
 				97E9555F19D60C02009703D7 /* Board.m in Sources */,
 				97E9553219D5FBE8009703D7 /* main.m in Sources */,
@@ -456,6 +484,7 @@
 				97E9555119D5FBE8009703D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		97E9555219D5FBE8009703D7 /* Build configuration list for PBXNativeTarget "iSolitaireTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +493,7 @@
 				97E9555419D5FBE8009703D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
