@@ -23,6 +23,8 @@
 						xTo: (int)xTo
 						yTo: (int)yTo;
 - (int) nbTotalPossibleMovements;
+- (NSString *) getValueAtX: (int)x
+												 y: (int)y;
 
 @property (nonatomic, strong) BoardType *boardType;
 @property (nonatomic, strong) NSMutableArray *grid;

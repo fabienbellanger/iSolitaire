@@ -52,6 +52,16 @@
 	NSLog(@"Destroyed: %@", self);
 }
 
+/**
+ * Valeur aux coordonnées X,Y
+ *
+ */
+- (NSString *) getValueAtX: (int)x
+												 y: (int)y
+{
+	return [[_boardType.grid objectAtIndex:y] objectAtIndex:x];
+}
+
 
 /**
  * Affichage du tableau de jeu
@@ -133,8 +143,6 @@
 	BOOL r			= false;
 	int i, j;
 	
-	//NSLog(@"from(%d,%d) to(%d,%d) : %@ %@", xFrom, yFrom, xTo, yTo, [[_boardType.grid objectAtIndex:yFrom] objectAtIndex:xFrom], [[_boardType.grid objectAtIndex:yTo] objectAtIndex:xTo]);
-
 	if (xFrom >= 0 && xFrom < length && yFrom >= 0 && yFrom < length &&
 			xTo >= 0 && xTo < length && yTo >= 0 && yTo < length &&
 			[[[_boardType.grid objectAtIndex:yFrom] objectAtIndex:xFrom] isEqualToString: @"1"] &&

@@ -10,4 +10,11 @@
 
 @interface CircleView : UIView
 
+- (instancetype) initWithFrame:(CGRect)frame
+												radius:(float)radius
+												 state:(int)state;
+
+@property (nonatomic, readwrite) int state;
+@property (nonatomic, readwrite) float radius;
+
 @end

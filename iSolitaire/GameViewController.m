@@ -7,10 +7,9 @@
 //
 
 #import "GameViewController.h"
-#import "CircleView.h"
+#import "BoardView.h"
 
 @interface GameViewController ()
-@property (weak, nonatomic) IBOutlet CircleView *circle;
 
 @end
 
@@ -18,14 +17,17 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	NSLog(@"%@", self.circle);
-	//[self.title setTextColor: [UIColor greenColor]];
-	// Do any additional setup after loading the view.
+	
+	// Ajout du plateau de jeux
+	CGRect boardViewFrame = CGRectMake(16.0, 100.0, 288.0, 288.8);
+	BoardView *boardView = [[BoardView alloc] initWithFrame:boardViewFrame board:self.board];
+	
+	[self.view addSubview:boardView];
 }
 
 - (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+	[super didReceiveMemoryWarning];
+	// Dispose of any resources that can be recreated.
 }
 
 /*

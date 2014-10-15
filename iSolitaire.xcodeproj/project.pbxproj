@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		970685A619E9CEC40072AF22 /* BoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 970685A519E9CEC40072AF22 /* BoardView.m */; };
 		9722177719E47FC5009DE40E /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9722177619E47FC5009DE40E /* GameViewController.m */; };
 		97415A8219E95FB400DD1C60 /* CircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 97415A8119E95FB400DD1C60 /* CircleView.m */; };
 		97E9553219D5FBE8009703D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E9553119D5FBE8009703D7 /* main.m */; };
@@ -19,6 +20,7 @@
 		97E9555F19D60C02009703D7 /* Board.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E9555A19D60C02009703D7 /* Board.m */; };
 		97E9556019D60C02009703D7 /* BoardType.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E9555C19D60C02009703D7 /* BoardType.m */; };
 		97E9556119D60C02009703D7 /* BoardTypeList.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E9555E19D60C02009703D7 /* BoardTypeList.m */; };
+		97FACA2E19EC263100717CCC /* BoardSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FACA2D19EC263100717CCC /* BoardSelectionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		970685A419E9CEC40072AF22 /* BoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardView.h; sourceTree = "<group>"; };
+		970685A519E9CEC40072AF22 /* BoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardView.m; sourceTree = "<group>"; };
 		9722177519E47FC5009DE40E /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		9722177619E47FC5009DE40E /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		97415A8019E95FB400DD1C60 /* CircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleView.h; sourceTree = "<group>"; };
@@ -55,6 +59,8 @@
 		97E9555C19D60C02009703D7 /* BoardType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardType.m; sourceTree = "<group>"; };
 		97E9555D19D60C02009703D7 /* BoardTypeList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardTypeList.h; sourceTree = "<group>"; };
 		97E9555E19D60C02009703D7 /* BoardTypeList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardTypeList.m; sourceTree = "<group>"; };
+		97FACA2C19EC263100717CCC /* BoardSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardSelectionViewController.h; sourceTree = "<group>"; };
+		97FACA2D19EC263100717CCC /* BoardSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardSelectionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +93,8 @@
 		97415A7F19E95F6200DD1C60 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				970685A419E9CEC40072AF22 /* BoardView.h */,
+				970685A519E9CEC40072AF22 /* BoardView.m */,
 				97415A8019E95FB400DD1C60 /* CircleView.h */,
 				97415A8119E95FB400DD1C60 /* CircleView.m */,
 			);
@@ -169,6 +177,7 @@
 		97E9555619D6052B009703D7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				97FACA2F19EC263700717CCC /* BoardSelection */,
 				9722177419E47F69009DE40E /* Game */,
 				97E9555819D60936009703D7 /* Welcome */,
 			);
@@ -182,6 +191,15 @@
 				97E9553719D5FBE8009703D7 /* WelcomeViewController.m */,
 			);
 			name = Welcome;
+			sourceTree = "<group>";
+		};
+		97FACA2F19EC263700717CCC /* BoardSelection */ = {
+			isa = PBXGroup;
+			children = (
+				97FACA2C19EC263100717CCC /* BoardSelectionViewController.h */,
+				97FACA2D19EC263100717CCC /* BoardSelectionViewController.m */,
+			);
+			name = BoardSelection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,7 +306,9 @@
 				97E9553819D5FBE8009703D7 /* WelcomeViewController.m in Sources */,
 				9722177719E47FC5009DE40E /* GameViewController.m in Sources */,
 				97E9556019D60C02009703D7 /* BoardType.m in Sources */,
+				97FACA2E19EC263100717CCC /* BoardSelectionViewController.m in Sources */,
 				97415A8219E95FB400DD1C60 /* CircleView.m in Sources */,
+				970685A619E9CEC40072AF22 /* BoardView.m in Sources */,
 				97E9553519D5FBE8009703D7 /* AppDelegate.m in Sources */,
 				97E9555F19D60C02009703D7 /* Board.m in Sources */,
 				97E9553219D5FBE8009703D7 /* main.m in Sources */,

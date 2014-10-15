@@ -1,15 +1,18 @@
 //
-//  GameViewController.h
+//  BoardView.h
 //  iSolitaire
 //
-//  Created by Fabien BELLANGER on 07/10/2014.
+//  Created by Fabien BELLANGER on 11/10/2014.
 //  Copyright (c) 2014 Fabien BELLANGER. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "Board.h"
 
-@interface GameViewController : UIViewController
+@interface BoardView : UIView
+
+- (instancetype) initWithFrame:(CGRect)frame
+												 board:(Board *)board;
 
 @property (nonatomic, strong) Board *board;
 
