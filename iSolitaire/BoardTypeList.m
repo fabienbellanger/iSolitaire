@@ -80,7 +80,8 @@
  * Ajout d'un type de plateau
  *
  */
-- (void) addBoardType:(NSString *)name grid:(NSMutableArray *)grid
+- (void) addBoardType:(NSString *)name
+								 grid:(NSMutableArray *)grid
 {
 	BoardType *boardType = [[BoardType alloc] initWithParams:name grid:grid];
 	

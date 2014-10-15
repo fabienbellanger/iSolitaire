@@ -56,8 +56,8 @@
  * Valeur aux coordonnées X,Y
  *
  */
-- (NSString *) getValueAtX: (int)x
-												 y: (int)y
+- (NSString *) getValueAtX:(int)x
+												 y:(int)y
 {
 	return [[_boardType.grid objectAtIndex:y] objectAtIndex:x];
 }
@@ -134,10 +134,10 @@
  * Le déplacement est-il autorisé ?
  *
  */
-- (BOOL) isMovementAutorized: (int)xFrom
-											 yFrom: (int)yFrom
-												 xTo: (int)xTo
-												 yTo: (int)yTo
+- (BOOL) isMovementAutorized:(int)xFrom
+											 yFrom:(int)yFrom
+												 xTo:(int)xTo
+												 yTo:(int)yTo
 {
 	int length	= (int)[_boardType.grid count];
 	BOOL r			= false;
@@ -326,8 +326,8 @@
  * Nombre de déplacements possible
  *
  */
-- (int) nbPossibleMovements: (int)x
-													y: (int)y
+- (int) nbPossibleMovements:(int)x
+													y:(int)y
 {
 	int nb = 0;
 	NSString *v1, *v2;
@@ -364,10 +364,10 @@
  * Valeur au déplacement
  *
  */
-- (NSString *) getValueToMovement: (int)xFrom
-																y: (int)yFrom
-												direction: (NSString *)direction
-														 step: (int)step
+- (NSString *) getValueToMovement:(int)xFrom
+																y:(int)yFrom
+												direction:(NSString *)direction
+														 step:(int)step
 {
 	int length	= (int)[_boardType.grid count];
 	NSString *r;
@@ -417,10 +417,10 @@
  * Déplacement
  *
  */
-- (BOOL) moveTo: (int)xFrom
-					yFrom: (int)yFrom
-						xTo: (int)xTo
-						yTo: (int)yTo
+- (BOOL) moveTo:(int)xFrom
+					yFrom:(int)yFrom
+						xTo:(int)xTo
+						yTo:(int)yTo
 {
 	BOOL r = false;
 	

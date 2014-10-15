@@ -14,17 +14,17 @@
 - (instancetype) initWithBoardType:(BoardType *)type;
 - (void) drawBoard;
 - (BOOL) isGameWinned;
-- (BOOL) isMovementAutorized: (int)xFrom
-											 yFrom: (int)yFrom
-												 xTo: (int)xTo
-												 yTo: (int)yTo;
-- (BOOL) moveTo: (int)xFrom
-					yFrom: (int)yFrom
-						xTo: (int)xTo
-						yTo: (int)yTo;
+- (BOOL) isMovementAutorized:(int)xFrom
+											 yFrom:(int)yFrom
+												 xTo:(int)xTo
+												 yTo:(int)yTo;
+- (BOOL) moveTo:(int)xFrom
+					yFrom:(int)yFrom
+						xTo:(int)xTo
+						yTo:(int)yTo;
 - (int) nbTotalPossibleMovements;
-- (NSString *) getValueAtX: (int)x
-												 y: (int)y;
+- (NSString *) getValueAtX:(int)x
+												 y:(int)y;
 
 @property (nonatomic, strong) BoardType *boardType;
 @property (nonatomic, strong) NSMutableArray *grid;

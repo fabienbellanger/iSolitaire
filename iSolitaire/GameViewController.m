@@ -19,8 +19,8 @@
 	[super viewDidLoad];
 	
 	// Ajout du plateau de jeux
-	CGRect boardViewFrame = CGRectMake(16.0, 100.0, 288.0, 288.8);
-	BoardView *boardView = [[BoardView alloc] initWithFrame:boardViewFrame board:self.board];
+	CGRect boardViewFrame = CGRectMake(16.0, 100.0, 288.0, 288.0);
+	BoardView *boardView	= [[BoardView alloc] initWithFrame:boardViewFrame board:self.board];
 	
 	[self.view addSubview:boardView];
 }

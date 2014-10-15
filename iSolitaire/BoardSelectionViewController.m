@@ -14,7 +14,7 @@
 
 @interface BoardSelectionViewController ()
 
-@property (nonatomic, strong) NSMutableArray *boardsList;
+@property (nonatomic, strong) NSArray *boardsList;
 @property (nonatomic, strong) Board *boardSelected;
 
 @end
@@ -26,27 +26,8 @@
 	[super viewDidLoad];
 	// Do any additional setup after loading the view.
 	
-	// Plateaux de jeu
-	self.boardsList = [[NSMutableArray alloc] initWithArray: [[BoardTypeList initList] getAllTypes]];
-	int nbBoards		= [self.boardsList count];
-	int i;
-	CGRect buttonRect;
-	UIButton *btBoard;
-	
-	// Afichage des plateaux
-	i = 0;
-	while (!(i == nbBoards))
-	{
-		buttonRect	= CGRectMake(50, 100 + 40 * i, 100, 30);
-		btBoard			= [UIButton buttonWithType:UIButtonTypeRoundedRect];
-		
-		[btBoard setTag: i];
-		[btBoard setTitle:[[self.boardsList objectAtIndex:i] name] forState:UIControlStateNormal];
-		[btBoard addTarget:self action:@selector(chooseBoard:) forControlEvents:UIControlEventTouchUpInside];
-		btBoard.frame = buttonRect;
-		[self.view addSubview:btBoard];
-		i++;
-	}
+	// Affichage des plateaux disponibles
+	[self drawBoardsList];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,12 +49,78 @@
 	}
 }
 
+/**
+ * Choix du plateau de jeu
+ *
+ */
 - (void) chooseBoard:(id)sender
 {
 	BoardType *selectedBoardType	= [self.boardsList objectAtIndex:[sender tag]];
 	self.boardSelected						= [[Board alloc] initWithBoardType:selectedBoardType];
 	
 	[self performSegueWithIdentifier:@"chooseBoard" sender:self];
+}
+
+/**
+ * Affichage des différents plateaux de jeu disponibles
+ *
+ */
+- (void) drawBoardsList
+{
+	// Plateaux de jeu
+	self.boardsList = [[NSArray alloc] initWithArray: [[BoardTypeList initList] getAllTypes]];
+	int nbBoards		= (int) [self.boardsList count];
+	int i;
+	UIButton *btBoard;
+	NSMutableDictionary *buttonsList = [[NSMutableDictionary alloc] init];
+	NSLayoutConstraint *constraint;
+	
+	// Afichage des plateaux
+	i = 0;
+	while (!(i == nbBoards))
+	{
+		btBoard	= [UIButton buttonWithType:UIButtonTypeRoundedRect];
+		btBoard.translatesAutoresizingMaskIntoConstraints = NO;
+		[btBoard sizeToFit];
+		[btBoard setTag: i];
+		[btBoard setTitle:[[self.boardsList objectAtIndex:i] name] forState:UIControlStateNormal];
+		[btBoard addTarget:self
+								action:@selector(chooseBoard:)
+			forControlEvents:UIControlEventTouchUpInside];
+		
+		[self.view addSubview:btBoard];
+		
+		[buttonsList setObject:btBoard forKey:[[self.boardsList objectAtIndex:i] name]];
+		
+		i++;
+	}
+	
+	i = 0;
+	for (id key in buttonsList)
+	{
+		// Contraintes
+		// -> Horizontale
+		constraint = [NSLayoutConstraint constraintWithItem:buttonsList[key]
+																							attribute:NSLayoutAttributeCenterX
+																							relatedBy:NSLayoutRelationEqual
+																								 toItem:self.view
+																							attribute:NSLayoutAttributeCenterX
+																						 multiplier:1.0
+																							 constant:0.0];
+		[self.view addConstraint:constraint];
+		
+		// -> Haut
+		constraint = [NSLayoutConstraint constraintWithItem:buttonsList[key]
+																							attribute:NSLayoutAttributeTop
+																							relatedBy:NSLayoutRelationEqual
+																								 toItem:self.view
+																							attribute:NSLayoutAttributeTop
+																						 multiplier:1.0
+																							 constant:120.0 + i * 50.0];
+		[self.view addConstraint:constraint];
+		
+		i++;
+	}
 }
 
 @end
