@@ -10,20 +10,28 @@
 
 @implementation CircleView
 
+
 /**
  * Initialisation
  *
  */
 - (instancetype) initWithFrame:(CGRect)frame
 												radius:(float)radius
-												 state:(int)state
+														 x:(int)x
+														 y:(int)y
+												 state:(NSString *)state
 {
 	self = [super initWithFrame:frame];
 	if (self)
 	{
-		self.radius = radius;
-		self.state  = state;
-		self.backgroundColor = [UIColor clearColor];
+		self.radius						= radius;
+		self.x								= x;
+		self.y								= y;
+		self.state						= state;
+		self.selected					= false;
+		self.backgroundColor	= [UIColor clearColor];
+		
+		//NSLog(@"Circle (%d,%d) : %@", x, y, state);
 	}
 	return self;
 }
@@ -32,9 +40,11 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-	UIBezierPath *path	= [[UIBezierPath alloc] init];
-	CGRect bounds				= self.bounds;
-	UIColor *color			= [UIColor darkGrayColor];
+	self.path							= [[UIBezierPath alloc] init];
+	CGRect bounds					= self.bounds;
+	UIColor *colorNormal	= [UIColor darkGrayColor];
+	UIColor *colorTouch		=	[UIColor greenColor];
+	UIColor *color;
 	CGPoint center;
 	
 	// Calcul du centre du rectangle
@@ -42,22 +52,53 @@
 	center.y = bounds.origin.y + bounds.size.width / 2.0;
 	
 	// Tracé
-	[path addArcWithCenter:center
-									radius:self.radius
-							startAngle:0.0
-								endAngle:M_PI * 2.0
-							 clockwise:YES];
+	[self.path addArcWithCenter:center
+												radius:self.radius
+										startAngle:0.0
+											endAngle:M_PI * 2.0
+										 clockwise:YES];
+	
+	if (self.selected)
+		color = colorTouch;
+	else
+		color = colorNormal;
 	
 	// Contour
-	path.lineWidth = 1.5;
+	self.path.lineWidth = 1.5;
 	[color setStroke];
-	[path stroke];
+	[self.path stroke];
 	
-	if (self.state == 0)
+	if ([self.state isEqualToString:@"1"])
 	{
 		// Pion
 		[color setFill];
-		[path fill];
+		[self.path fill];
+	}
+	else if ([self.state isEqualToString:@"2"])
+	{
+		// Pion
+		[[UIColor clearColor] setFill];
+		[self.path fill];
+	}
+}
+
+- (void)touchesBegan:(NSSet *)touches
+					 withEvent:(UIEvent *)event
+{
+	CGPoint touchPoint = [touches.anyObject locationInView:self];
+	if ([self.path containsPoint:touchPoint])
+	{
+		self.selected = !self.selected;
+		
+		// Delegate
+		if ([self.delegate respondsToSelector:@selector(getXYCircle:y:)])
+		{
+			// La méthode est appelée avec le nom de la tâche en paramètre
+			[self.delegate getXYCircle:self.x y:self.y];
+		}
+		
+		// Rechergement de la vue (on relance drawRect)
+		[self setNeedsDisplay];
 	}
 }
 

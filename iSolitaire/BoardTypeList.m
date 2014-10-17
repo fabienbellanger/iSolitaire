@@ -60,7 +60,6 @@
 		_privateTypes = [[NSMutableArray alloc] init];
 		[self addEnglishBoardType];
 		[self addFrenchBoardType];
-		[self addTestBoardType];
 	}
 	return self;
 }
@@ -123,24 +122,6 @@
 														 [[NSMutableArray alloc] initWithArray:@[@"0",@"0",@"1",@"1",@"1",@"0",@"0"]]]];
 	
 	[self addBoardType:@"Français" grid:grid];
-}
-
-/**
- * Plateau de test
- *
- */
-- (void) addTestBoardType
-{
-	NSMutableArray *grid = [[NSMutableArray alloc] initWithArray:
-													 @[[[NSMutableArray alloc] initWithArray:@[@"1",@"1",@"2",@"1",@"2",@"1",@"1"]],
-														 [[NSMutableArray alloc] initWithArray:@[@"1",@"2",@"1",@"1",@"1",@"2",@"1"]],
-														 [[NSMutableArray alloc] initWithArray:@[@"2",@"1",@"1",@"1",@"2",@"1",@"2"]],
-														 [[NSMutableArray alloc] initWithArray:@[@"1",@"1",@"1",@"1",@"2",@"1",@"1"]],
-														 [[NSMutableArray alloc] initWithArray:@[@"2",@"1",@"2",@"2",@"1",@"1",@"2"]],
-														 [[NSMutableArray alloc] initWithArray:@[@"1",@"2",@"1",@"1",@"1",@"2",@"1"]],
-														 [[NSMutableArray alloc] initWithArray:@[@"1",@"1",@"2",@"1",@"2",@"1",@"1"]]]];
-	
-	[self addBoardType:@"Test" grid:grid];
 }
 
 

@@ -8,9 +8,6 @@
 
 #import "BoardView.h"
 #import "CircleView.h"
-#import "BoardTypeList.h"
-#import "BoardType.h"
-#import "Board.h"
 
 @implementation BoardView
 
@@ -26,6 +23,7 @@
 	{
 		self.board						= board;
 		self.backgroundColor	= [UIColor clearColor];
+		self->circlesSelected = [[NSMutableArray alloc] init];
 	}
 	return self;
 }
@@ -44,7 +42,7 @@
 	UIView *viewSquare	= [[UIView alloc] initWithFrame:square];
 	CGRect circleRect;
 	CircleView *circle;
-	int i, j, circleState;
+	int i, j;
 	
 	// Vue carrée
 	viewSquare.backgroundColor = [UIColor clearColor];
@@ -61,24 +59,54 @@
 															j * circleRadius,
 															circleRadius,
 															circleRadius);
-			if ([[self.board getValueAtX:i y:j] isEqualToString:@"0"])
-				circleState = -1;
-			else if ([[self.board getValueAtX:i y:j] isEqualToString:@"1"])
-				circleState = 0;
-			else
-				circleState = 1;
-			
-			if (circleState >= 0)
+			if (![[self.board getValueAtX:i y:j] isEqualToString:@"0"])
 			{
 				circle	= [[CircleView alloc] initWithFrame:circleRect
 																						 radius:(circleRadius / 2.5)
-																							state:circleState];
+																								  x:i
+																								  y:j
+																							state:[self.board getValueAtX:i y:j]];
+				circle.delegate = self;
 				[self addSubview:circle];
 			}
 			
 			j++;
 		}
 		i++;
+	}
+}
+
+- (void)getXYCircle:(int)x
+									y:(int)y
+{
+	int nbCircles = (int)[self->circlesSelected count];
+	
+	NSLog(@"(%d,%d) : %d", x, y, nbCircles);
+	
+	if (nbCircles == 0)
+	{
+		// Premier cercle sélectionné
+		NSArray *circleCoordonates = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:x], [NSNumber numberWithInt:y], nil];
+		[self->circlesSelected addObject:circleCoordonates];
+	}
+	else if (nbCircles == 1)
+	{
+		// Second cercle sélectionné
+		NSArray *circleCoordonates = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:x], [NSNumber numberWithInt:y], nil];
+		[self->circlesSelected addObject:circleCoordonates];
+		
+		// Mouvement
+		/*[self.board moveTo:[[[self->circlesSelected objectAtIndex:0] objectAtIndex:0] intValue]
+								 yFrom:[[[self->circlesSelected objectAtIndex:0] objectAtIndex:1] intValue]
+									 xTo:[[[self->circlesSelected objectAtIndex:1] objectAtIndex:0] intValue]
+									 yTo:[[[self->circlesSelected objectAtIndex:1] objectAtIndex:1] intValue]];
+		[self.board drawBoard];
+		
+		// Rafraichissement de la vue
+		[self setNeedsDisplay];
+		
+		// Vidage du tableau
+		[self->circlesSelected removeAllObjects];*/
 	}
 }
 

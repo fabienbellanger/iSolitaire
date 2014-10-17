@@ -72,7 +72,7 @@
 	int nbBoards		= (int) [self.boardsList count];
 	int i;
 	UIButton *btBoard;
-	NSMutableDictionary *buttonsList = [[NSMutableDictionary alloc] init];
+	NSMutableArray *buttonsList = [[NSMutableArray alloc] init];
 	NSLayoutConstraint *constraint;
 	
 	// Afichage des plateaux
@@ -90,17 +90,17 @@
 		
 		[self.view addSubview:btBoard];
 		
-		[buttonsList setObject:btBoard forKey:[[self.boardsList objectAtIndex:i] name]];
+		[buttonsList addObject:btBoard];
 		
 		i++;
 	}
 	
 	i = 0;
-	for (id key in buttonsList)
+	while (!(i == nbBoards))
 	{
 		// Contraintes
 		// -> Horizontale
-		constraint = [NSLayoutConstraint constraintWithItem:buttonsList[key]
+		constraint = [NSLayoutConstraint constraintWithItem:[buttonsList objectAtIndex:i]
 																							attribute:NSLayoutAttributeCenterX
 																							relatedBy:NSLayoutRelationEqual
 																								 toItem:self.view
@@ -110,13 +110,13 @@
 		[self.view addConstraint:constraint];
 		
 		// -> Haut
-		constraint = [NSLayoutConstraint constraintWithItem:buttonsList[key]
+		constraint = [NSLayoutConstraint constraintWithItem:[buttonsList objectAtIndex:i]
 																							attribute:NSLayoutAttributeTop
 																							relatedBy:NSLayoutRelationEqual
 																								 toItem:self.view
 																							attribute:NSLayoutAttributeTop
 																						 multiplier:1.0
-																							 constant:120.0 + i * 50.0];
+																							 constant:100.0 + i * 50.0];
 		[self.view addConstraint:constraint];
 		
 		i++;

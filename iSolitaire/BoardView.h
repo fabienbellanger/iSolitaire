@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Board.h"
+#import "CircleView.h"
 
-@interface BoardView : UIView
+@interface BoardView : UIView <selectCircleDelegate>
+{
+	NSMutableArray *circlesSelected;
+}
 
 - (instancetype) initWithFrame:(CGRect)frame
 												 board:(Board *)board;
