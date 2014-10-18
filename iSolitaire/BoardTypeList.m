@@ -60,6 +60,7 @@
 		_privateTypes = [[NSMutableArray alloc] init];
 		[self addEnglishBoardType];
 		[self addFrenchBoardType];
+		[self addEuropeanBoardType];
 	}
 	return self;
 }
@@ -123,6 +124,25 @@
 	
 	[self addBoardType:@"Français" grid:grid];
 }
+
+/**
+ * Plateau Européen
+ *
+ */
+- (void) addEuropeanBoardType
+{
+	NSMutableArray *grid = [[NSMutableArray alloc] initWithArray:
+													@[[[NSMutableArray alloc] initWithArray:@[@"0",@"0",@"1",@"1",@"1",@"0",@"0"]],
+														[[NSMutableArray alloc] initWithArray:@[@"0",@"1",@"1",@"1",@"1",@"1",@"0"]],
+														[[NSMutableArray alloc] initWithArray:@[@"1",@"1",@"1",@"1",@"1",@"1",@"1"]],
+														[[NSMutableArray alloc] initWithArray:@[@"1",@"1",@"1",@"2",@"1",@"1",@"1"]],
+														[[NSMutableArray alloc] initWithArray:@[@"1",@"1",@"1",@"1",@"1",@"1",@"1"]],
+														[[NSMutableArray alloc] initWithArray:@[@"0",@"1",@"1",@"1",@"1",@"1",@"0"]],
+														[[NSMutableArray alloc] initWithArray:@[@"0",@"0",@"1",@"1",@"1",@"0",@"0"]]]];
+	
+	[self addBoardType:@"Européen" grid:grid];
+}
+
 
 
 @end

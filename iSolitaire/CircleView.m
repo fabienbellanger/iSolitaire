@@ -36,6 +36,11 @@
 	return self;
 }
 
+- (NSString *)description
+{
+	return [NSString stringWithFormat: @"Circle: (%d,%d) state=%@", self.x, self.y, self.state];
+}
+
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect

@@ -20,9 +20,9 @@
 	
 	if (self)
 	{
-		_boardType = type;
-		_grid = type.grid;
-		_state = @"inprocess";
+		_boardType	= type;
+		_grid				= type.grid;
+		_state			= @"inprocess";
 	}
 	
 	NSLog(@"Initialisation : Board %@", _boardType.name);

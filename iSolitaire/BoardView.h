@@ -13,6 +13,7 @@
 @interface BoardView : UIView <selectCircleDelegate>
 {
 	NSMutableArray *circlesSelected;
+	NSMutableArray *circlesList;
 }
 
 - (instancetype) initWithFrame:(CGRect)frame
