@@ -33,6 +33,8 @@
 														 y:(int)y
 												 state:(NSString *)state;
 
+- (void) changeStateAndRedraw:(NSString *)state selected:(BOOL)selected;
+
 @property (nonatomic, readwrite) int x;
 @property (nonatomic, readwrite) int y;
 @property (nonatomic, readwrite) float radius;

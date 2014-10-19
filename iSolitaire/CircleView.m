@@ -107,4 +107,18 @@
 	}
 }
 
+/**
+ * Change d'état et redessine la vue
+ *
+ */
+- (void) changeStateAndRedraw:(NSString *)state
+										 selected:(BOOL)selected
+{
+	self.state		= state;
+	self.selected = selected;
+	
+	// Rechergement de la vue (on relance drawRect)
+	[self setNeedsDisplay];
+}
+
 @end

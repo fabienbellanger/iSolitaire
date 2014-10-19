@@ -330,31 +330,35 @@
 													y:(int)y
 {
 	int nb = 0;
-	NSString *v1, *v2;
 	
-	// Haut
-	v1 = [self getValueToMovement:x y:y direction:@"up" step:1];
-	v2 = [self getValueToMovement:x y:y direction:@"up" step:2];
-	if ([v1 isEqualToString:@"1"] && [v2 isEqualToString:@"2"])
-		nb++;
-	
-	// Bas
-	v1 = [self getValueToMovement:x y:y direction:@"down" step:1];
-	v2 = [self getValueToMovement:x y:y direction:@"down" step:2];
-	if ([v1 isEqualToString:@"1"] && [v2 isEqualToString:@"2"])
-		nb++;
-	
-	// Droite
-	v1 = [self getValueToMovement:x y:y direction:@"right" step:1];
-	v2 = [self getValueToMovement:x y:y direction:@"right" step:2];
-	if ([v1 isEqualToString:@"1"] && [v2 isEqualToString:@"2"])
-		nb++;
-	
-	// Gauche
-	v1 = [self getValueToMovement:x y:y direction:@"left" step:1];
-	v2 = [self getValueToMovement:x y:y direction:@"left" step:2];
-	if ([v1 isEqualToString:@"1"] && [v2 isEqualToString:@"2"])
-		nb++;
+	if ([[self getValueAtX:x y:y] isEqualToString:@"1"])
+	{
+		NSString *v1, *v2;
+		
+		// Haut
+		v1 = [self getValueToMovement:x y:y direction:@"up" step:1];
+		v2 = [self getValueToMovement:x y:y direction:@"up" step:2];
+		if ([v1 isEqualToString:@"1"] && [v2 isEqualToString:@"2"])
+			nb++;
+		
+		// Bas
+		v1 = [self getValueToMovement:x y:y direction:@"down" step:1];
+		v2 = [self getValueToMovement:x y:y direction:@"down" step:2];
+		if ([v1 isEqualToString:@"1"] && [v2 isEqualToString:@"2"])
+			nb++;
+		
+		// Droite
+		v1 = [self getValueToMovement:x y:y direction:@"right" step:1];
+		v2 = [self getValueToMovement:x y:y direction:@"right" step:2];
+		if ([v1 isEqualToString:@"1"] && [v2 isEqualToString:@"2"])
+			nb++;
+		
+		// Gauche
+		v1 = [self getValueToMovement:x y:y direction:@"left" step:1];
+		v2 = [self getValueToMovement:x y:y direction:@"left" step:2];
+		if ([v1 isEqualToString:@"1"] && [v2 isEqualToString:@"2"])
+			nb++;
+	}
 	
 	return nb;
 }

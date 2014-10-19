@@ -125,17 +125,29 @@
                                     <segue destination="3Uk-l3-xO2" kind="modal" identifier="backToBoardSelection" id="K4I-BJ-FKO"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z0Z-Kx-XvP">
+                                <rect key="frame" x="16" y="66" width="288" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="SCp-ex-1lY" firstAttribute="trailing" secondItem="nU7-hF-rxv" secondAttribute="trailingMargin" id="0hP-Wd-f7k"/>
                             <constraint firstItem="Mzg-4r-MAO" firstAttribute="trailing" secondItem="nU7-hF-rxv" secondAttribute="trailingMargin" id="36B-bG-eaY"/>
+                            <constraint firstItem="z0Z-Kx-XvP" firstAttribute="top" secondItem="Mzg-4r-MAO" secondAttribute="bottom" constant="15" id="BE4-tg-W7N"/>
                             <constraint firstItem="vwc-5z-czc" firstAttribute="top" secondItem="SCp-ex-1lY" secondAttribute="bottom" constant="20" id="YNp-81-TSy"/>
+                            <constraint firstItem="z0Z-Kx-XvP" firstAttribute="trailing" secondItem="nU7-hF-rxv" secondAttribute="trailingMargin" id="Yyr-7h-HrM"/>
                             <constraint firstItem="SCp-ex-1lY" firstAttribute="leading" secondItem="nU7-hF-rxv" secondAttribute="leadingMargin" id="kYN-Bz-DFX"/>
+                            <constraint firstItem="z0Z-Kx-XvP" firstAttribute="leading" secondItem="nU7-hF-rxv" secondAttribute="leadingMargin" id="pg7-X3-u1W"/>
                             <constraint firstItem="Mzg-4r-MAO" firstAttribute="leading" secondItem="nU7-hF-rxv" secondAttribute="leadingMargin" id="u5e-po-e3U"/>
                             <constraint firstItem="Mzg-4r-MAO" firstAttribute="top" secondItem="Aqb-uM-uzC" secondAttribute="bottom" constant="10" id="z1X-Gf-3bG"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="timerLabel" destination="z0Z-Kx-XvP" id="TNg-r6-u6a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bfd-GI-xQ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -11,6 +11,8 @@
 
 @interface GameViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *timerLabel;
+
 @property (nonatomic, strong) Board *board;
 
 @end

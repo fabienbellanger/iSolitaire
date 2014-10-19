@@ -143,6 +143,4 @@
 	[self addBoardType:@"Européen" grid:grid];
 }
 
-
-
 @end

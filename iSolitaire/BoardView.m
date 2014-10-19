@@ -83,16 +83,12 @@
 		}
 		i++;
 	}
-	
-	NSLog(@"%@", self->circlesList);
 }
 
 - (void)getXYCircle:(int)x
 									y:(int)y
 {
 	int nbCircles = (int)[self->circlesSelected count];
-	
-	NSLog(@"(%d,%d) : %d", x, y, nbCircles);
 	
 	if (nbCircles == 0)
 	{
@@ -120,35 +116,59 @@
 																					 yFrom:yFrom
 																						 xTo:xTo
 																						 yTo:yTo];
-		[self.board drawBoard];
-		
+
 		if (movementAuthorized)
 		{
 			CircleView *circleFrom = [self->circlesList objectAtIndex:indexFrom];
-			circleFrom.state		= @"2";
-			circleFrom.selected = false;
-			[circleFrom setNeedsDisplay];
+			[circleFrom changeStateAndRedraw:@"2" selected:false];
+			
 			CircleView *circleTo = [self->circlesList objectAtIndex:indexTo];
-			circleTo.state		= @"1";
-			circleTo.selected = false;
-			[circleTo setNeedsDisplay];
+			[circleTo changeStateAndRedraw:@"1" selected:false];
+			
 			CircleView *circleMiddle = [self->circlesList objectAtIndex:indexMiddle];
-			circleMiddle.state		= @"2";
-			circleMiddle.selected = false;
-			[circleMiddle setNeedsDisplay];
+			[circleMiddle changeStateAndRedraw:@"2" selected:false];
 		}
 		else
 		{
 			CircleView *circleFrom = [self->circlesList objectAtIndex:indexFrom];
-			circleFrom.selected = false;
-			[circleFrom setNeedsDisplay];
+			[circleFrom changeStateAndRedraw:circleFrom.state selected:false];
+			
 			CircleView *circleTo = [self->circlesList objectAtIndex:indexTo];
-			circleTo.selected = false;
-			[circleTo setNeedsDisplay];
+			[circleTo changeStateAndRedraw:circleTo.state selected:false];
 		}
 		
 		// Vidage du tableau
 		[self->circlesSelected removeAllObjects];
+		
+		// Le jeu est-il gagné ?
+		if ([self.board isGameWinned])
+		{
+			// Gagné
+			UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"iSolitaire"
+																											message:@"Bravo ! Vous avez gagné."
+																										 delegate:self
+																						cancelButtonTitle:@"OK"
+																						otherButtonTitles:nil];
+			[alert show];
+		}
+		else
+		{
+			int nbMovementsPossible = [self.board nbTotalPossibleMovements];
+			if (nbMovementsPossible == 0)
+			{
+				// Perdu
+				UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"iSolitaire"
+																												message:@"Perdu !"
+																											 delegate:self
+																							cancelButtonTitle:@"OK"
+																							otherButtonTitles:nil];
+				[alert show];
+			}
+			else
+			{
+				NSLog(@"Nombre de mouvements encore possible : %d", nbMovementsPossible);
+			}
+		}
 	}
 }
 
