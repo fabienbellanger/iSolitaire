@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 // =======================
 // Déclaration du protocol
@@ -25,6 +26,7 @@
 {
 	// Variable d'instance
 	id <selectCircleDelegate> _delegate;
+	SystemSoundID sound;
 }
 
 - (instancetype) initWithFrame:(CGRect)frame

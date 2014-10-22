@@ -31,7 +31,9 @@
 		self.selected					= false;
 		self.backgroundColor	= [UIColor clearColor];
 		
-		//NSLog(@"Circle (%d,%d) : %@", x, y, state);
+		// Son
+		NSURL *clickSound   = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"sound1" ofType:@"wav"]];
+		AudioServicesCreateSystemSoundID ((__bridge CFURLRef)clickSound, &self->sound);
 	}
 	return self;
 }
@@ -48,7 +50,10 @@
 	self.path							= [[UIBezierPath alloc] init];
 	CGRect bounds					= self.bounds;
 	UIColor *colorNormal	= [UIColor darkGrayColor];
-	UIColor *colorTouch		=	[UIColor greenColor];
+	UIColor *colorTouch		=	[UIColor colorWithRed:24.0 / 255.0
+																					green:116.0 / 255.0
+																					 blue:205.0 / 255.0
+																				  alpha:1.0];
 	UIColor *color;
 	CGPoint center;
 	
@@ -90,6 +95,9 @@
 - (void)touchesBegan:(NSSet *)touches
 					 withEvent:(UIEvent *)event
 {
+	// Son
+	AudioServicesPlaySystemSound(self->sound);
+	
 	CGPoint touchPoint = [touches.anyObject locationInView:self];
 	if ([self.path containsPoint:touchPoint])
 	{

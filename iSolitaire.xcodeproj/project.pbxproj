@@ -10,6 +10,8 @@
 		970685A619E9CEC40072AF22 /* BoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 970685A519E9CEC40072AF22 /* BoardView.m */; };
 		9722177719E47FC5009DE40E /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9722177619E47FC5009DE40E /* GameViewController.m */; };
 		97415A8219E95FB400DD1C60 /* CircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 97415A8119E95FB400DD1C60 /* CircleView.m */; };
+		977D607E19F6F686000DE879 /* sound1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 977D607D19F6F686000DE879 /* sound1.wav */; };
+		977D608219F70359000DE879 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 977D607F19F6FA4F000DE879 /* AudioToolbox.framework */; };
 		97E9553219D5FBE8009703D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E9553119D5FBE8009703D7 /* main.m */; };
 		97E9553519D5FBE8009703D7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E9553419D5FBE8009703D7 /* AppDelegate.m */; };
 		97E9553819D5FBE8009703D7 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E9553719D5FBE8009703D7 /* WelcomeViewController.m */; };
@@ -40,6 +42,8 @@
 		9722177619E47FC5009DE40E /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		97415A8019E95FB400DD1C60 /* CircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleView.h; sourceTree = "<group>"; };
 		97415A8119E95FB400DD1C60 /* CircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleView.m; sourceTree = "<group>"; };
+		977D607D19F6F686000DE879 /* sound1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sound1.wav; sourceTree = "<group>"; };
+		977D607F19F6FA4F000DE879 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		97E9552C19D5FBE8009703D7 /* iSolitaire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSolitaire.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97E9553019D5FBE8009703D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97E9553119D5FBE8009703D7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -68,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				977D608219F70359000DE879 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,9 +106,26 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		977D607B19F6F228000DE879 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				977D607C19F6F230000DE879 /* Sounds */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		977D607C19F6F230000DE879 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				977D607D19F6F686000DE879 /* sound1.wav */,
+			);
+			name = Sounds;
+			sourceTree = "<group>";
+		};
 		97E9552319D5FBE8009703D7 = {
 			isa = PBXGroup;
 			children = (
+				977D607F19F6FA4F000DE879 /* AudioToolbox.framework */,
 				97E9552E19D5FBE8009703D7 /* iSolitaire */,
 				97E9554819D5FBE8009703D7 /* iSolitaireTests */,
 				97E9552D19D5FBE8009703D7 /* Products */,
@@ -130,6 +152,7 @@
 				97E9555619D6052B009703D7 /* ViewControllers */,
 				97415A7F19E95F6200DD1C60 /* Views */,
 				97E9555519D60519009703D7 /* Classes */,
+				977D607B19F6F228000DE879 /* Assets */,
 				97E9552F19D5FBE8009703D7 /* Supporting Files */,
 			);
 			path = iSolitaire;
@@ -251,6 +274,7 @@
 				TargetAttributes = {
 					97E9552B19D5FBE8009703D7 = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = 3P77FLKF9C;
 					};
 					97E9554419D5FBE8009703D7 = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -282,6 +306,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				977D607E19F6F686000DE879 /* sound1.wav in Resources */,
 				97E9553B19D5FBE8009703D7 /* Main.storyboard in Resources */,
 				97E9554019D5FBE8009703D7 /* LaunchScreen.xib in Resources */,
 				97E9553D19D5FBE8009703D7 /* Images.xcassets in Resources */,

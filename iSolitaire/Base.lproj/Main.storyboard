@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -110,12 +110,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mzg-4r-MAO">
-                                <rect key="frame" x="16" y="30" width="288" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SCp-ex-1lY">
                                 <rect key="frame" x="16" y="430" width="288" height="30"/>
                                 <state key="normal" title="Retour à la sélection du plateau">
@@ -125,9 +119,9 @@
                                     <segue destination="3Uk-l3-xO2" kind="modal" identifier="backToBoardSelection" id="K4I-BJ-FKO"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z0Z-Kx-XvP">
-                                <rect key="frame" x="16" y="66" width="288" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z0Z-Kx-XvP">
+                                <rect key="frame" x="126" y="20" width="68" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -135,14 +129,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="SCp-ex-1lY" firstAttribute="trailing" secondItem="nU7-hF-rxv" secondAttribute="trailingMargin" id="0hP-Wd-f7k"/>
-                            <constraint firstItem="Mzg-4r-MAO" firstAttribute="trailing" secondItem="nU7-hF-rxv" secondAttribute="trailingMargin" id="36B-bG-eaY"/>
-                            <constraint firstItem="z0Z-Kx-XvP" firstAttribute="top" secondItem="Mzg-4r-MAO" secondAttribute="bottom" constant="15" id="BE4-tg-W7N"/>
                             <constraint firstItem="vwc-5z-czc" firstAttribute="top" secondItem="SCp-ex-1lY" secondAttribute="bottom" constant="20" id="YNp-81-TSy"/>
-                            <constraint firstItem="z0Z-Kx-XvP" firstAttribute="trailing" secondItem="nU7-hF-rxv" secondAttribute="trailingMargin" id="Yyr-7h-HrM"/>
+                            <constraint firstItem="z0Z-Kx-XvP" firstAttribute="trailing" secondItem="nU7-hF-rxv" secondAttribute="trailingMargin" constant="-110" id="Yyr-7h-HrM"/>
+                            <constraint firstItem="z0Z-Kx-XvP" firstAttribute="top" secondItem="nU7-hF-rxv" secondAttribute="top" constant="20" id="Z54-JS-txp"/>
                             <constraint firstItem="SCp-ex-1lY" firstAttribute="leading" secondItem="nU7-hF-rxv" secondAttribute="leadingMargin" id="kYN-Bz-DFX"/>
-                            <constraint firstItem="z0Z-Kx-XvP" firstAttribute="leading" secondItem="nU7-hF-rxv" secondAttribute="leadingMargin" id="pg7-X3-u1W"/>
-                            <constraint firstItem="Mzg-4r-MAO" firstAttribute="leading" secondItem="nU7-hF-rxv" secondAttribute="leadingMargin" id="u5e-po-e3U"/>
-                            <constraint firstItem="Mzg-4r-MAO" firstAttribute="top" secondItem="Aqb-uM-uzC" secondAttribute="bottom" constant="10" id="z1X-Gf-3bG"/>
+                            <constraint firstItem="z0Z-Kx-XvP" firstAttribute="leading" secondItem="nU7-hF-rxv" secondAttribute="leadingMargin" constant="110" id="pg7-X3-u1W"/>
                         </constraints>
                     </view>
                     <connections>

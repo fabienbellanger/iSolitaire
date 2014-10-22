@@ -22,7 +22,7 @@ NSTimer *timer;
 	[super viewDidLoad];
 	
 	// Ajout du plateau de jeux
-	CGRect boardViewFrame = CGRectMake(16.0, 100.0, 288.0, 288.0);
+	CGRect boardViewFrame = CGRectMake(8.0, 100.0, 304.0, 304.0);
 	BoardView *boardView	= [[BoardView alloc] initWithFrame:boardViewFrame board:self.board];
 	
 	[self.view addSubview:boardView];
@@ -41,6 +41,11 @@ NSTimer *timer;
 - (void)didReceiveMemoryWarning {
 	[super didReceiveMemoryWarning];
 	// Dispose of any resources that can be recreated.
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+	return YES;
 }
 
 /*

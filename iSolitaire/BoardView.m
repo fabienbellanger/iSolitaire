@@ -63,7 +63,7 @@
 			if (![[self.board getValueAtX:i y:j] isEqualToString:@"0"])
 			{
 				circle	= [[CircleView alloc] initWithFrame:circleRect
-																						 radius:(circleRadius / 2.5)
+																						 radius:(circleRadius / 2.3)
 																								  x:i
 																								  y:j
 																							state:[self.board getValueAtX:i y:j]];
