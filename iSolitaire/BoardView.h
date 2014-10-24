@@ -10,15 +10,28 @@
 #import "Board.h"
 #import "CircleView.h"
 
+// =======================
+// Déclaration du protocol
+// =======================
+@protocol gameStateDelegate <NSObject>
+
+@required
+
+- (void)getStateOfGame:(NSString *)state;
+
+@end
+
 @interface BoardView : UIView <selectCircleDelegate>
 {
 	NSMutableArray *circlesSelected;
 	NSMutableArray *circlesList;
+	id <gameStateDelegate> _delegate;
 }
 
 - (instancetype) initWithFrame:(CGRect)frame
 												 board:(Board *)board;
 
 @property (nonatomic, strong) Board *board;
+@property (nonatomic, strong) id delegate;
 
 @end

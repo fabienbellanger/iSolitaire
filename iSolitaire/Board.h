@@ -25,6 +25,7 @@
 - (int) nbTotalPossibleMovements;
 - (NSString *) getValueAtX:(int)x
 												 y:(int)y;
+- (int) nbPlainCirclesRemaining;
 
 @property (nonatomic, strong) BoardType *boardType;
 @property (nonatomic, strong) NSMutableArray *grid;

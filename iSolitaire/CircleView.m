@@ -63,10 +63,10 @@
 	
 	// Tracé
 	[self.path addArcWithCenter:center
-												radius:self.radius
-										startAngle:0.0
-											endAngle:M_PI * 2.0
-										 clockwise:YES];
+											 radius:self.radius
+									 startAngle:0.0
+										 endAngle:M_PI * 2.0
+										clockwise:YES];
 	
 	if (self.selected)
 		color = colorTouch;
@@ -86,7 +86,7 @@
 	}
 	else if ([self.state isEqualToString:@"2"])
 	{
-		// Pion
+		// Trou
 		[[UIColor clearColor] setFill];
 		[self.path fill];
 	}
@@ -95,23 +95,28 @@
 - (void)touchesBegan:(NSSet *)touches
 					 withEvent:(UIEvent *)event
 {
-	// Son
-	AudioServicesPlaySystemSound(self->sound);
-	
-	CGPoint touchPoint = [touches.anyObject locationInView:self];
-	if ([self.path containsPoint:touchPoint])
+	if ([self.state isEqualToString:@"1"] || [self.state isEqualToString:@"2"])
 	{
-		self.selected = !self.selected;
+		// Son
+		AudioServicesPlaySystemSound(self->sound);
 		
-		// Delegate
-		if ([self.delegate respondsToSelector:@selector(getXYCircle:y:)])
+		CGPoint touchPoint = [touches.anyObject locationInView:self];
+		if ([self.path containsPoint:touchPoint])
 		{
-			// La méthode est appelée avec le nom de la tâche en paramètre
-			[self.delegate getXYCircle:self.x y:self.y];
+			self.selected = !self.selected;
+			
+			// Delegate
+			if ([self.delegate respondsToSelector:@selector(getXYCircle:y:state:)])
+			{
+				// La méthode est appelée avec le nom de la tâche en paramètre
+				[self.delegate getXYCircle:self.x
+																 y:self.y
+														 state:self.state];
+			}
+			
+			// Rechergement de la vue (on relance drawRect)
+			[self setNeedsDisplay];
 		}
-		
-		// Rechergement de la vue (on relance drawRect)
-		[self setNeedsDisplay];
 	}
 }
 

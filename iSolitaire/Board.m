@@ -471,8 +471,6 @@
 		}
 	}
 	
-	NSLog(@"Movement from (%d,%d) to (%d,%d) : %@", xFrom, yFrom, xTo, yTo, (r) ? @"yes" : @"no");
-	
 	return r;
 }
 
@@ -500,7 +498,38 @@
 		i++;
 	}
 	
+	if (nb == 0)
+		self.state = @"lost";
+	
 	return nb;
+}
+
+/**
+ * Nombre de pions restants
+ *
+ */
+- (int) nbPlainCirclesRemaining
+{
+	int length	= (int)[_boardType.grid count];
+	int i, j, n;
+	
+	i = 0;
+	n = 0;
+	while (!(i == length))
+	{
+		j = 0;
+		while (!(j == length))
+		{
+			if ([[[_boardType.grid objectAtIndex:i] objectAtIndex:j] isEqualToString: @"1"])
+				n++;
+			
+			j++;
+		}
+		
+		i++;
+	}
+	
+	return n;
 }
 
 @end

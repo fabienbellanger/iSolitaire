@@ -61,6 +61,7 @@
 		[self addEnglishBoardType];
 		[self addFrenchBoardType];
 		[self addEuropeanBoardType];
+		[self addTestBoardType];
 	}
 	return self;
 }
@@ -141,6 +142,24 @@
 														[[NSMutableArray alloc] initWithArray:@[@"0",@"0",@"1",@"1",@"1",@"0",@"0"]]]];
 	
 	[self addBoardType:@"Européen" grid:grid];
+}
+
+/**
+ * Plateau Test
+ *
+ */
+- (void) addTestBoardType
+{
+	NSMutableArray *grid = [[NSMutableArray alloc] initWithArray:
+													@[[[NSMutableArray alloc] initWithArray:@[@"0",@"0",@"2",@"2",@"2",@"0",@"0"]],
+														[[NSMutableArray alloc] initWithArray:@[@"0",@"0",@"2",@"2",@"2",@"0",@"0"]],
+														[[NSMutableArray alloc] initWithArray:@[@"0",@"0",@"2",@"2",@"2",@"0",@"0"]],
+														[[NSMutableArray alloc] initWithArray:@[@"1",@"1",@"2",@"2",@"2",@"2",@"1"]],
+														[[NSMutableArray alloc] initWithArray:@[@"0",@"0",@"2",@"2",@"2",@"0",@"0"]],
+														[[NSMutableArray alloc] initWithArray:@[@"0",@"0",@"2",@"2",@"2",@"0",@"0"]],
+														[[NSMutableArray alloc] initWithArray:@[@"0",@"0",@"2",@"2",@"2",@"0",@"0"]]]];
+	
+	[self addBoardType:@"Test" grid:grid];
 }
 
 @end

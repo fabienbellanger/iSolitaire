@@ -85,20 +85,32 @@
 	}
 }
 
+
+// =================================================================================================
+//
+// DELEGATES
+//
+// =================================================================================================
+
+/**
+ * Récupération des coordonnées d'un cercle et de son état (delegate provenant de CircleView)
+ *
+ */
 - (void)getXYCircle:(int)x
 									y:(int)y
+							state:(NSString *)state
 {
 	int nbCircles = (int)[self->circlesSelected count];
 	
-	if (nbCircles == 0)
+	if (nbCircles == 0 && [state isEqualToString:@"1"])
 	{
-		// Premier cercle sélectionné
+		// Premier cercle sélectionné est un pion
 		NSArray *circleCoordonates = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:x], [NSNumber numberWithInt:y], nil];
 		[self->circlesSelected addObject:circleCoordonates];
 	}
-	else if (nbCircles == 1)
+	else if (nbCircles == 1 && [state isEqualToString:@"2"])
 	{
-		// Second cercle sélectionné
+		// Second cercle sélectionné est un trou
 		NSArray *circleCoordonates = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:x], [NSNumber numberWithInt:y], nil];
 		[self->circlesSelected addObject:circleCoordonates];
 		
@@ -158,19 +170,64 @@
 			{
 				// Perdu
 				UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"iSolitaire"
-																												message:@"Perdu !"
+																												message:[[NSString alloc] initWithFormat:@"Perdu ! Il reste %d pions", [self.board nbPlainCirclesRemaining]]
 																											 delegate:self
 																							cancelButtonTitle:@"OK"
 																							otherButtonTitles:nil];
 				[alert show];
 			}
+		}
+		
+		// Etat du jeu (Delegate)
+		if ([self.delegate respondsToSelector:@selector(getStateOfGame:)])
+		{
+			// La méthode est appelée avec le nom de la tâche en paramètre
+			[self.delegate getStateOfGame:self.board.state];
+		}
+	}
+	else
+	{
+		// Déplacement non possible
+		int gridLength	= (int)[self.board.grid count];
+		
+		if ([self->circlesSelected count] > 0)
+		{
+			// Mouvement
+			int xFrom				= [[[self->circlesSelected objectAtIndex:0] objectAtIndex:0] intValue];
+			int yFrom				= [[[self->circlesSelected objectAtIndex:0] objectAtIndex:1] intValue];
+			int indexFrom		= yFrom + gridLength * xFrom;
+			
+			CircleView *circleFrom = [self->circlesList objectAtIndex:indexFrom];
+			[circleFrom changeStateAndRedraw:circleFrom.state selected:false];
+			
+			if ([self->circlesSelected count] > 1)
+			{
+				int xTo					= [[[self->circlesSelected objectAtIndex:1] objectAtIndex:0] intValue];
+				int yTo					= [[[self->circlesSelected objectAtIndex:1] objectAtIndex:1] intValue];
+				int indexTo			= yTo + gridLength * xTo;
+				
+				CircleView *circleTo = [self->circlesList objectAtIndex:indexTo];
+				[circleTo changeStateAndRedraw:circleTo.state selected:false];
+			}
 			else
 			{
-				NSLog(@"Nombre de mouvements encore possible : %d", nbMovementsPossible);
+				int index		= y + gridLength * x;
+				
+				CircleView *circle = [self->circlesList objectAtIndex:index];
+				[circle changeStateAndRedraw:circle.state selected:false];
 			}
+			
+			// Vidage du tableau
+			[self->circlesSelected removeAllObjects];
+		}
+		else
+		{
+			int index		= y + gridLength * x;
+			
+			CircleView *circle = [self->circlesList objectAtIndex:index];
+			[circle changeStateAndRedraw:circle.state selected:false];
 		}
 	}
 }
-
 
 @end

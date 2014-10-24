@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Board.h"
+#import "BoardView.h"
 
-@interface GameViewController : UIViewController
+@interface GameViewController : UIViewController <gameStateDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 

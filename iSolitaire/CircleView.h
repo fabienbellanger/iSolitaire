@@ -17,7 +17,8 @@
 @required
 
 - (void) getXYCircle:(int)x
-									 y:(int)y;
+									 y:(int)y
+							 state:(NSString *)state;
 
 @end
 

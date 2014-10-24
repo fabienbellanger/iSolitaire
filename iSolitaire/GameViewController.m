@@ -24,6 +24,7 @@ NSTimer *timer;
 	// Ajout du plateau de jeux
 	CGRect boardViewFrame = CGRectMake(8.0, 100.0, 304.0, 304.0);
 	BoardView *boardView	= [[BoardView alloc] initWithFrame:boardViewFrame board:self.board];
+	boardView.delegate = self;
 	
 	[self.view addSubview:boardView];
 	
@@ -93,6 +94,28 @@ NSTimer *timer;
 		str = [[NSString alloc] initWithFormat:@"%d:%d", minutes, seconds];
 	
 	return str;
+}
+
+
+// =================================================================================================
+//
+// DELEGATES
+//
+// =================================================================================================
+
+/**
+ * Etat du jeu (delegate provenant de BoardView)
+ *
+ */
+- (void)getStateOfGame:(NSString *)state
+{
+	if ([state isEqualToString:@"winned"] || [state isEqualToString:@"lost"])
+	{
+		NSLog(@"Game state : %@",state);
+		
+		// On stoppe le timer
+		[timer invalidate];
+	}
 }
 
 @end
