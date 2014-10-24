@@ -13,6 +13,7 @@
 @interface BoardTypeList : NSObject
 
 + (instancetype) initList;
+- (NSMutableArray *) getArrayOfType:(NSString *)type;
 - (NSArray *) getAllTypes;
 
 @property (nonatomic, readonly) NSArray *allTypes;

@@ -101,14 +101,18 @@
 							state:(NSString *)state
 {
 	int nbCircles = (int)[self->circlesSelected count];
+
+	NSLog(@"board state : %@", self.board.state);
+	NSLog(@"nbCircles : %d", nbCircles);
+	NSLog(@"state : %@", state);
 	
-	if (nbCircles == 0 && [state isEqualToString:@"1"])
+	if ([self.board.state isEqualToString:@"inprogress"] && nbCircles == 0 && [state isEqualToString:@"1"])
 	{
 		// Premier cercle sélectionné est un pion
 		NSArray *circleCoordonates = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:x], [NSNumber numberWithInt:y], nil];
 		[self->circlesSelected addObject:circleCoordonates];
 	}
-	else if (nbCircles == 1 && [state isEqualToString:@"2"])
+	else if ([self.board.state isEqualToString:@"inprogress"] && nbCircles == 1 && [state isEqualToString:@"2"])
 	{
 		// Second cercle sélectionné est un trou
 		NSArray *circleCoordonates = [[NSArray alloc] initWithObjects:[NSNumber numberWithInt:x], [NSNumber numberWithInt:y], nil];
@@ -128,9 +132,9 @@
 																					 yFrom:yFrom
 																						 xTo:xTo
 																						 yTo:yTo];
-
+		[self.board drawBoard];
 		if (movementAuthorized)
-		{
+		{NSLog(@"auth");
 			CircleView *circleFrom = [self->circlesList objectAtIndex:indexFrom];
 			[circleFrom changeStateAndRedraw:@"2" selected:false];
 			

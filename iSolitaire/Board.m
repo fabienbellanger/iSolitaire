@@ -22,7 +22,7 @@
 	{
 		_boardType	= type;
 		_grid				= type.grid;
-		_state			= @"inprocess";
+		_state			= @"inprogress";
 	}
 	
 	NSLog(@"Initialisation : Board %@", _boardType.name);

@@ -13,19 +13,19 @@
 // =======================
 // Déclaration du protocol
 // =======================
-@protocol gameStateDelegate <NSObject>
+@protocol BoardViewDelegate <NSObject>
 
-@required
+@optional
 
 - (void)getStateOfGame:(NSString *)state;
 
 @end
 
-@interface BoardView : UIView <selectCircleDelegate>
+@interface BoardView : UIView <CircleViewDelegate>
 {
 	NSMutableArray *circlesSelected;
 	NSMutableArray *circlesList;
-	id <gameStateDelegate> _delegate;
+	id <BoardViewDelegate> _delegate;
 }
 
 - (instancetype) initWithFrame:(CGRect)frame

@@ -60,9 +60,11 @@
  */
 - (void) chooseBoard:(id)sender
 {
+	BoardTypeList *boardTypeList 	= [BoardTypeList initList];
 	BoardType *selectedBoardType	= [self.boardsList objectAtIndex:[sender tag]];
+	NSMutableArray *grid 					= [boardTypeList getArrayOfType:selectedBoardType.name];
 	self.boardSelected						= [[Board alloc] initWithBoardType:selectedBoardType];
-	
+	self.boardSelected.grid				= grid;
 	[self performSegueWithIdentifier:@"chooseBoard" sender:self];
 }
 

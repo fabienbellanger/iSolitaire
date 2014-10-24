@@ -10,7 +10,7 @@
 #import "Board.h"
 #import "BoardView.h"
 
-@interface GameViewController : UIViewController <gameStateDelegate>
+@interface GameViewController : UIViewController <BoardViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 

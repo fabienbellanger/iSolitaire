@@ -11,7 +11,7 @@
 @implementation BoardType
 
 /**
- * Initialisation avec nom, grille et longueur
+ * Initialisation avec nom et grille
  *
  */
 - (id) initWithParams:(NSString *)name grid:(NSMutableArray *)grid

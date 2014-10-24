@@ -12,7 +12,7 @@
 // =======================
 // Déclaration du protocol
 // =======================
-@protocol selectCircleDelegate <NSObject>
+@protocol CircleViewDelegate <NSObject>
 
 @required
 
@@ -26,7 +26,7 @@
 @interface CircleView : UIView
 {
 	// Variable d'instance
-	id <selectCircleDelegate> _delegate;
+	id <CircleViewDelegate> _delegate;
 	SystemSoundID sound;
 }
 
